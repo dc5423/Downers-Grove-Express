@@ -292,8 +292,8 @@ def video_figure(page):
         f'<button class="playbox" data-embed="{embed}" aria-label="Play the {esc(v["label"])} video">'
         f'{img}<span class="play" aria-hidden="true">▶</span></button>'
         f'<figcaption>Video: {esc(v["label"])} · '
-        f'<a href="{watch}" target="_blank" rel="noopener">Watch on YouTube</a> · '
-        f'Slide {page}</figcaption></figure>'
+        f'<a href="{watch}" target="_blank" rel="noopener">Watch on YouTube</a>'
+        f'</figcaption></figure>'
     )
 
 
@@ -304,7 +304,7 @@ def figures(page):
     for name in IMAGES.get(page, []):
         out.append(
             f'<figure><img loading="lazy" src="img/{name}" '
-            f'alt="Diagram from slide {page}"><figcaption>Slide {page}</figcaption></figure>'
+            f'alt="Diagram from slide {page}"></figure>'
         )
     return "".join(out)
 

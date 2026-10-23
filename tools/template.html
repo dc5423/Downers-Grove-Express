@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DGS Express Knowledgebase</title>
+<meta name="description" content="Basketball actions, concepts, screens, cuts, offenses and ball screen coverages for DGS Express.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#00204E; --deep:#0B2F60; --steel:#2E5E96; --bright:#6699CC;
+  --ice:#BAD1E8; --mist:#EDF3FA; --paper:#F7F9FC; --white:#FFFFFF;
+  --ink:#16243C; --body:#44536B; --muted:#7A8AA3; --line:#D9E3EF;
+  --amber:#9C5A12; --amber-tint:#FBF0E2; --green:#1F6B3A; --green-tint:#E8F3EC;
+  --nav:300px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--paper);color:var(--body);
+  font-family:'Barlow',system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  font-size:17px;line-height:1.55;-webkit-text-size-adjust:100%}
+h1,h2,h3,h4{font-family:'Barlow Condensed',system-ui,Arial,sans-serif;color:var(--navy);margin:0;line-height:1.1}
+a{color:var(--steel)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--bright);outline-offset:2px}
+
+/* ---------- shell ---------- */
+.shell{display:flex;align-items:flex-start}
+.sidebar{width:var(--nav);flex:none;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;
+  background:var(--navy);color:var(--ice)}
+.brand{display:flex;align-items:center;gap:13px;padding:20px 20px 16px;text-decoration:none;
+  border-bottom:1px solid rgba(186,209,232,.22)}
+.brand img{width:54px;height:auto;flex:none}
+.brand .mark,.brand .name{display:block}
+.brand .mark{font-family:'Barlow Condensed';font-size:13px;letter-spacing:3.5px;text-transform:uppercase;color:var(--bright);font-weight:700}
+.brand .name{font-family:'Barlow Condensed';font-size:30px;font-weight:700;text-transform:uppercase;color:#fff;line-height:1}
+.search{padding:14px 18px;border-bottom:1px solid rgba(186,209,232,.22)}
+.search input{width:100%;font:inherit;font-size:15px;color:#fff;background:#0B2F60;
+  border:1px solid #2E5E96;border-radius:8px;padding:10px 12px}
+.search input::placeholder{color:#8FB4D9}
+.count{font-size:13px;color:#8FB4D9;padding:8px 2px 0}
+nav{overflow-y:auto;flex:1;padding:10px 0 48px}
+.navpart h3{font-size:15px;letter-spacing:2.4px;text-transform:uppercase;color:var(--bright);
+  padding:16px 22px 7px;font-weight:700}
+nav ul{list-style:none;margin:0;padding:0}
+nav li a{display:block;padding:6px 22px;color:var(--ice);text-decoration:none;font-size:15.5px;border-left:3px solid transparent}
+nav li a:hover{background:#0B2F60;color:#fff}
+nav li a.on{border-left-color:var(--bright);background:#0B2F60;color:#fff;font-weight:600}
+.topbar{display:none}
+
+main{flex:1;min-width:0;padding:0 48px 120px;max-width:1020px}
+.intro{padding:48px 0 8px}
+.intro h1{font-size:60px;text-transform:uppercase}
+.intro p{max-width:62ch;font-size:19px}
+.credit{color:var(--muted);font-size:15.5px}
+
+.parthead{font-size:17px;letter-spacing:3px;text-transform:uppercase;color:var(--bright);
+  padding:52px 0 0;border-top:3px solid var(--navy);margin-top:40px}
+.part:first-of-type .parthead{margin-top:16px}
+
+/* ---------- topic ---------- */
+.topic{background:var(--white);border:1px solid var(--line);border-radius:14px;
+  padding:30px 34px;margin:26px 0;scroll-margin-top:20px}
+.topic h2{font-size:38px;text-transform:uppercase}
+.topic h2 .anchor{text-decoration:none;color:var(--line);font-size:26px;margin-left:10px;opacity:0}
+.topic:hover h2 .anchor{opacity:1}
+.src{color:var(--muted);font-size:14px;margin:2px 0 18px;letter-spacing:.4px}
+.topic h3{font-size:25px;text-transform:uppercase;margin:26px 0 10px;
+  padding-bottom:6px;border-bottom:2px solid var(--mist)}
+.topic h4{font-size:20px;margin:18px 0 6px;color:var(--deep)}
+.topic p{margin:0 0 12px}
+.topic ul{margin:0 0 14px;padding-left:22px}
+.topic li{margin:0 0 7px}
+.lbl{padding-left:0}
+.lbl span{font-family:'Barlow Condensed';font-size:16px;letter-spacing:1.6px;text-transform:uppercase;
+  color:#fff;background:var(--steel);border-radius:5px;padding:3px 9px;margin-right:9px;font-weight:700;
+  display:inline-block;vertical-align:1px}
+li.yes{list-style:none;position:relative}
+li.yes::before{content:"✓";position:absolute;left:-22px;color:var(--green);font-weight:700}
+li.no{list-style:none;position:relative}
+li.no::before{content:"✕";position:absolute;left:-22px;color:var(--amber);font-weight:700}
+li.idea,li.warn,li.note{list-style:none;position:relative}
+li.idea::before{content:"◆";position:absolute;left:-22px;color:var(--steel)}
+li.warn::before{content:"▲";position:absolute;left:-22px;color:var(--amber)}
+li.note::before{content:"→";position:absolute;left:-22px;color:var(--steel)}
+
+/* ---------- SWOT ---------- */
+.swot-head{margin-top:28px}
+.swot{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0 18px}
+.quad{border-radius:12px;padding:20px 22px}
+.quad h4{margin:0 0 10px;font-size:21px;letter-spacing:1px;text-transform:uppercase}
+.quad ul{padding-left:20px;margin-bottom:0}
+.quad li{font-size:16px}
+.quad.strengths{background:var(--mist);border-top:6px solid var(--navy)}
+.quad.opportunities{background:var(--mist);border-top:6px solid var(--steel)}
+.quad.weaknesses{background:var(--amber-tint);border-top:6px solid var(--amber)}
+.quad.threats{background:var(--amber-tint);border-top:6px solid var(--amber)}
+.quad.strengths h4{color:var(--navy)}
+.quad.opportunities h4{color:var(--steel)}
+.quad.weaknesses h4,.quad.threats h4{color:var(--amber)}
+.quad.weaknesses,.quad.threats{color:#4A3A22}
+
+/* ---------- glossary ---------- */
+.glossary{margin:0;display:grid;gap:0}
+.gterm{display:grid;grid-template-columns:240px 1fr;gap:0 24px;padding:11px 0;border-top:1px solid var(--mist)}
+.gterm:first-child{border-top:none}
+.glossary dt{font-weight:600;color:var(--navy);font-size:17px}
+.glossary dd{margin:0}
+.glossary dd.plain{grid-column:1/-1;color:var(--body)}
+
+
+/* ---------- about ---------- */
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0 6px}
+.agrid.two{grid-template-columns:1fr 1fr}
+.acard{background:var(--mist);border-radius:12px;padding:20px 22px;border-top:5px solid var(--navy)}
+.acard.wide{grid-column:1/-1;border-top-color:var(--steel)}
+.acard h4{font-size:21px;text-transform:uppercase;letter-spacing:.6px;margin:0 0 4px}
+.acard h5{font-family:'Barlow Condensed';font-size:17px;text-transform:uppercase;letter-spacing:.8px;
+  color:var(--steel);margin:0 0 5px}
+.cardsub{font-size:15px;color:var(--muted);margin:0 0 10px}
+.acard ul{margin:0;padding-left:19px}
+.acard li{font-size:16px;margin:0 0 4px}
+.acard ul.flat{margin-bottom:12px}
+.subcols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-top:4px;
+  border-top:1px solid var(--line);margin-top:4px}
+.andmore{font-family:'Barlow Condensed';font-size:18px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--bright);font-weight:700;margin:10px 0 2px}
+.anote{font-size:15.5px;background:var(--white);border:1px solid var(--line);border-left:5px solid var(--bright);
+  border-radius:0 10px 10px 0;padding:13px 18px;margin:12px 0 0}
+.anote span{font-family:'Barlow Condensed';font-size:14px;letter-spacing:1.6px;text-transform:uppercase;
+  color:#fff;background:var(--steel);border-radius:4px;padding:2px 8px;margin-right:9px;font-weight:700}
+.about .topic h3,.about h3{margin-top:24px}
+@media (max-width:980px){
+  .agrid,.agrid.two{grid-template-columns:1fr}
+  .subcols{grid-template-columns:1fr;gap:12px}
+}
+
+/* ---------- figures ---------- */
+.figs{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0 4px}
+figure{margin:0;flex:1 1 320px;max-width:100%}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:var(--mist)}
+figcaption{font-size:13px;color:var(--muted);padding-top:5px}
+
+.empty{display:none;padding:60px 0;color:var(--muted);font-size:19px}
+.totop{position:fixed;right:22px;bottom:22px;background:var(--navy);color:#fff;border:none;border-radius:50%;
+  width:46px;height:46px;font-size:20px;cursor:pointer;display:none}
+
+@media (max-width:980px){
+  :root{--nav:0px}
+  .shell{display:block}
+  .sidebar{position:fixed;left:0;top:0;width:86%;max-width:330px;transform:translateX(-102%);
+    transition:transform .2s ease;z-index:40;box-shadow:0 0 40px rgba(0,0,0,.3)}
+  body.open .sidebar{transform:none}
+  .topbar{display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:30;
+    background:var(--navy);color:#fff;padding:12px 16px}
+  .topbar button{background:#0B2F60;color:#fff;border:1px solid #2E5E96;border-radius:8px;
+    font:inherit;font-size:15px;padding:8px 14px;cursor:pointer}
+  .topbar .t{font-family:'Barlow Condensed';font-size:22px;font-weight:700;text-transform:uppercase}
+  main{padding:0 16px 90px;max-width:100%}
+  .intro{padding:28px 0 4px}
+  .intro h1{font-size:40px}
+  .topic{padding:22px 18px;border-radius:12px}
+  .topic h2{font-size:30px}
+  .swot{grid-template-columns:1fr}
+  .gterm{grid-template-columns:1fr;gap:2px}
+  .glossary dt{font-size:18px}
+}
+@media print{
+  .sidebar,.topbar,.totop{display:none}
+  body{background:#fff;font-size:11pt}
+  .topic{break-inside:avoid;border:none;padding:0;margin:18px 0}
+  main{padding:0;max-width:100%}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <button id="menu" aria-expanded="false">Contents</button>
+  <span class="t">DGS Express Knowledgebase</span>
+</div>
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand" href="#top">
+      <img src="img/logo.png" alt="DGS Express logo" width="54" height="48">
+      <span>
+        <span class="mark">DGS Express</span>
+        <span class="name">Knowledgebase</span>
+      </span>
+    </a>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search actions, screens, coverages…" autocomplete="off" aria-label="Search the knowledgebase">
+      <div class="count" id="count"></div>
+    </div>
+    <nav id="nav"><!--NAV--></nav>
+  </aside>
+  <main id="main"><span id="top"></span>
+    <div class="intro">
+      <h1>DGS Express Knowledgebase</h1>
+      <p>A reference for actions, concepts, screens, cuts, offenses and ball screen coverages. Search above, or pick an entry from the contents.</p>
+      <p class="credit">These slides were created by Coach Chang of Elmhurst Basketball. Revised for by Coach Epps</p>
+    </div>
+    <!--BODY-->
+    <p class="empty" id="empty">No entries match that search.</p>
+  </main>
+</div>
+<button class="totop" id="totop" aria-label="Back to top">↑</button>
+<script>
+(function(){
+  var topics = Array.prototype.slice.call(document.querySelectorAll('.topic'));
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('nav a'));
+  var parts = Array.prototype.slice.call(document.querySelectorAll('.part'));
+  var navParts = Array.prototype.slice.call(document.querySelectorAll('.navpart'));
+  var q = document.getElementById('q');
+  var count = document.getElementById('count');
+  var empty = document.getElementById('empty');
+
+  topics.forEach(function(t){ t._text = (t.dataset.title + ' ' + t.textContent).toLowerCase(); });
+
+  function filter(){
+    var term = q.value.trim().toLowerCase();
+    if(!term){
+      topics.forEach(function(t){ t.style.display=''; });
+      parts.forEach(function(p){ p.style.display=''; });
+      navLinks.forEach(function(a){ a.parentNode.style.display=''; });
+      navParts.forEach(function(p){ p.style.display=''; });
+      count.textContent=''; empty.style.display='none'; return;
+    }
+    var hits = 0;
+    topics.forEach(function(t){
+      var on = t._text.indexOf(term) > -1;
+      t.style.display = on ? '' : 'none';
+      if(on) hits++;
+      var link = document.querySelector('nav a[data-slug="'+t.id+'"]');
+      if(link) link.parentNode.style.display = on ? '' : 'none';
+    });
+    parts.forEach(function(p){
+      p.style.display = p.querySelector('.topic:not([style*="none"])') ? '' : 'none';
+    });
+    navParts.forEach(function(p){
+      p.style.display = p.querySelector('li:not([style*="none"])') ? '' : 'none';
+    });
+    count.textContent = hits + (hits===1?' entry':' entries');
+    empty.style.display = hits ? 'none' : 'block';
+  }
+  q.addEventListener('input', filter);
+  q.addEventListener('keydown', function(e){ if(e.key==='Escape'){ q.value=''; filter(); }});
+
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      navLinks.forEach(function(a){ a.classList.toggle('on', a.dataset.slug === e.target.id); });
+    });
+  }, {rootMargin:'-10% 0px -80% 0px'});
+  topics.forEach(function(t){ spy.observe(t); });
+
+  var menu = document.getElementById('menu');
+  menu.addEventListener('click', function(){
+    var open = document.body.classList.toggle('open');
+    menu.setAttribute('aria-expanded', open ? 'true':'false');
+  });
+  document.querySelector('nav').addEventListener('click', function(e){
+    if(e.target.tagName === 'A') document.body.classList.remove('open');
+  });
+
+  var totop = document.getElementById('totop');
+  window.addEventListener('scroll', function(){
+    totop.style.display = window.scrollY > 900 ? 'block' : 'none';
+  });
+  totop.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+})();
+</script>
+</body>
+</html>

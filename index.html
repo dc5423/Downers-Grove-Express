@@ -109,6 +109,33 @@ li.note::before{content:"→";position:absolute;left:-22px;color:var(--steel)}
 .glossary dd{margin:0}
 .glossary dd.plain{grid-column:1/-1;color:var(--body)}
 
+
+/* ---------- about ---------- */
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0 6px}
+.agrid.two{grid-template-columns:1fr 1fr}
+.acard{background:var(--mist);border-radius:12px;padding:20px 22px;border-top:5px solid var(--navy)}
+.acard.wide{grid-column:1/-1;border-top-color:var(--steel)}
+.acard h4{font-size:21px;text-transform:uppercase;letter-spacing:.6px;margin:0 0 4px}
+.acard h5{font-family:'Barlow Condensed';font-size:17px;text-transform:uppercase;letter-spacing:.8px;
+  color:var(--steel);margin:0 0 5px}
+.cardsub{font-size:15px;color:var(--muted);margin:0 0 10px}
+.acard ul{margin:0;padding-left:19px}
+.acard li{font-size:16px;margin:0 0 4px}
+.acard ul.flat{margin-bottom:12px}
+.subcols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-top:4px;
+  border-top:1px solid var(--line);margin-top:4px}
+.andmore{font-family:'Barlow Condensed';font-size:18px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--bright);font-weight:700;margin:10px 0 2px}
+.anote{font-size:15.5px;background:var(--white);border:1px solid var(--line);border-left:5px solid var(--bright);
+  border-radius:0 10px 10px 0;padding:13px 18px;margin:12px 0 0}
+.anote span{font-family:'Barlow Condensed';font-size:14px;letter-spacing:1.6px;text-transform:uppercase;
+  color:#fff;background:var(--steel);border-radius:4px;padding:2px 8px;margin-right:9px;font-weight:700}
+.about .topic h3,.about h3{margin-top:24px}
+@media (max-width:980px){
+  .agrid,.agrid.two{grid-template-columns:1fr}
+  .subcols{grid-template-columns:1fr;gap:12px}
+}
+
 /* ---------- figures ---------- */
 .figs{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0 4px}
 figure{margin:0;flex:1 1 320px;max-width:100%}
@@ -279,51 +306,7 @@ figcaption{font-size:13px;color:var(--muted);padding-top:5px}
       <p class="credit">These slides were created by Coach Chang of Elmhurst Basketball. Revised for by Coach Epps</p>
     </div>
     <div class="part" id="part-start"><h1 class="parthead">Start Here</h1>
-<section class="topic" id="about" data-title="About this document"><h2>About this document<a class="anchor" href="#about" aria-label="Link to this entry">#</a></h2><p class="src">Slide 2 of the original deck</p><ul>
-<li class="yes"><strong>What is in this document?</strong></li>
-<li class="yes">80+ Actions / Concepts with Definitions, How it Works and Why it Works</li>
-<li class="yes">Dribble Hand Off – How to Execute and How to guard</li>
-<li class="yes">SWOT Analysis - Offense</li>
-<li class="yes">Strengths, Weaknesses, Opportunities and Threats</li>
-<li class="yes">Flex Offense</li>
-<li class="yes">Horns Offense</li>
-<li class="yes">Pistol Offense</li>
-<li class="yes">Princeton Offense</li>
-<li class="yes">5-Out Offense</li>
-<li class="yes">Circle Motion Offense</li>
-<li class="yes">SWOT Analysis - Defense</li>
-<li class="yes">Strengths, Weaknesses, Opportunities and Threats</li>
-<li class="yes">Gap Defense</li>
-<li class="yes">Ball Screen Coverages: On-Ball Defender</li>
-<li class="yes">Over (Zero Man Removed)</li>
-<li class="yes">Under (One Man Removed)</li>
-<li class="yes">Press Up (Two Man Removed)</li>
-<li class="yes">Ball Screen Coverages: Off-Ball Defender</li>
-<li class="yes">Drop</li>
-<li class="yes">Hedge</li>
-<li class="yes">Shadow</li>
-<li class="yes">Switch</li>
-<li class="yes">Trap</li>
-<li class="yes">Off- Ball Screen Coverages: Off-Ball Defender</li>
-<li class="yes">Zero Man Removed</li>
-<li class="yes">One Man Removed</li>
-<li class="yes">Two Man Removed</li>
-<li class="yes">AND MORE</li>
-<li class="yes"><strong>How do I use this document?</strong></li>
-<li class="yes">Players</li>
-<li class="yes">This presentation is a repository of basketball information to help develop and strengthen your basketball IQ</li>
-<li class="yes">Be a student of the game. Study actions and concepts that are in this document</li>
-<li class="yes">Doing so will help “slow the game” down for you</li>
-<li class="yes">Helping you process what you are seeing faster; allowing you to make better in game decisions</li>
-<li class="yes">Coaches</li>
-<li class="yes">Use this presentation as a template to build / demonstrate your team identity</li>
-<li class="yes">Choose or Add to existing actions / concepts or offenses / defenses that pertain to your team and what you want to accomplish this upcoming season</li>
-<li class="yes">Delete any actions / concepts or offenses / defenses that do not pertain to your team</li>
-<li class="yes">The result is your team’s offense and defensive philosophies / scheme + actions and concepts that your players will need to know and utilize.</li>
-<li class="yes"><strong>Example</strong>: Horns Offense + One Man Removed and Hedge Ball Screens + Switch Off-Ball Screens. Will utilize the following actions: Miami, Veer, Stampede, … , … etc</li>
-<li class="yes">Any word with a hyperlink – click on the word and then the link that appears. This will direct you to the action / concept.</li>
-<li class="yes"><strong>Example</strong>: Veer</li>
-</ul></section>
+<section class="topic about" id="about" data-title="About this document"><h2>About this document<a class="anchor" href="#about" aria-label="Link to this entry">#</a></h2><p class="src">Slide 2 of the original deck</p><h3>What is in this document?</h3><div class="agrid"><div class="acard"><h4>Actions and Concepts</h4><ul><li>80+ Actions / Concepts with Definitions, How it Works and Why it Works</li><li><a href="#dho-overview">Dribble Hand Off – How to Execute and How to guard</a></li></ul></div><div class="acard"><h4>SWOT Analysis - Offense</h4><p class="cardsub">Strengths, Weaknesses, Opportunities and Threats</p><ul><li><a href="#flex-offense">Flex Offense</a></li><li><a href="#horns-offense">Horns Offense</a></li><li><a href="#pistol-offense">Pistol Offense</a></li><li><a href="#princeton-offense">Princeton Offense</a></li><li><a href="#five-out-offense">5-Out Offense</a></li><li><a href="#circle-motion-offense">Circle Motion Offense</a></li></ul></div><div class="acard wide"><h4>SWOT Analysis - Defense</h4><p class="cardsub">Strengths, Weaknesses, Opportunities and Threats</p><ul class="flat"><li>Gap Defense</li></ul><div class="subcols"><div><h5>Ball Screen Coverages: On-Ball Defender</h5><ul><li><a href="#zero-man-removed">Over (Zero Man Removed)</a></li><li><a href="#one-man-removed">Under (One Man Removed)</a></li><li><a href="#two-man-removed">Press Up (Two Man Removed)</a></li></ul></div><div><h5>Ball Screen Coverages: Off-Ball Defender</h5><ul><li><a href="#drop">Drop</a></li><li><a href="#hard-hedge">Hedge</a></li><li><a href="#shadow">Shadow</a></li><li><a href="#switch">Switch</a></li><li><a href="#trapping">Trap</a></li></ul></div><div><h5>Off- Ball Screen Coverages: Off-Ball Defender</h5><ul><li><a href="#zero-man-removed">Zero Man Removed</a></li><li><a href="#one-man-removed">One Man Removed</a></li><li><a href="#two-man-removed">Two Man Removed</a></li></ul></div></div></div></div><p class="andmore">AND MORE</p><h3>How do I use this document?</h3><div class="agrid two"><div class="acard"><h4>Players</h4><ul><li>This presentation is a repository of basketball information to help develop and strengthen your basketball IQ</li><li>Be a student of the game. Study actions and concepts that are in this document</li><li>Doing so will help “slow the game” down for you</li><li>Helping you process what you are seeing faster; allowing you to make better in game decisions</li></ul></div><div class="acard"><h4>Coaches</h4><ul><li>Use this presentation as a template to build / demonstrate your team identity</li><li>Choose or Add to existing actions / concepts or offenses / defenses that pertain to your team and what you want to accomplish this upcoming season</li><li>Delete any actions / concepts or offenses / defenses that do not pertain to your team</li><li>The result is your team’s offense and defensive philosophies / scheme + actions and concepts that your players will need to know and utilize.</li></ul></div></div><p class="anote"><span>Example</span> Horns Offense + One Man Removed and Hedge Ball Screens + Switch Off-Ball Screens. Will utilize the following actions: Miami, Veer, Stampede, … , … etc</p><p class="anote"><span>Links</span> Any word with a hyperlink – click on the word and then the link that appears. This will direct you to the action / concept. Example: <a href="#veer-screen">Veer</a></p></section>
 </div>
 <div class="part" id="part-glossary"><h1 class="parthead">Glossary</h1>
 <section class="topic" id="concepts" data-title="Concepts and Actions"><h2>Concepts and Actions<a class="anchor" href="#concepts" aria-label="Link to this entry">#</a></h2><p class="src">Slides 3–5 of the original deck</p><dl class="glossary"><div class="gterm"><dt><a href="#pistol-offense">21 (Pistol)</a></dt><dd>Fast-paced 5-out offense with a ballhandler on the wing, a guard in the strong-side corner, and a big at the top.</dd></div><div class="gterm"><dt><a href="#barkley">Barkley</a></dt><dd>Dribbling from the perimeter into a post-up.</dd></div><div class="gterm"><dt><a href="#baseline-slide">Baseline Slide</a></dt><dd>A weakside cut to the corner on a baseline drive.</dd></div><div class="gterm"><dt><a href="#bilbao-twirl">Bilbao</a></dt><dd>Like Twirl, but the first cutter can either curl or reject the first screen before the second action occurs.</dd></div><div class="gterm"><dt><a href="#blind-pig">Blind Pig</a></dt><dd>A backdoor play where a big receives a pass and quickly finds a cutter.</dd></div><div class="gterm"><dt><a href="#boomerang">Boomerang (Reload)</a></dt><dd>A quick pass back to the original ballhandler to attack a mismatch.</dd></div><div class="gterm"><dt><a href="#chicago">Chicago</a></dt><dd>A pin-<strong>down</strong> screen into a dribble handoff (<strong>DHO</strong>).</dd></div><div class="gterm"><dt><a href="#cyclone">Cyclone</a></dt><dd>A backscreen near the weakside elbow set by a player who is usually expected to receive a <strong>down</strong> screen.</dd></div><div class="gterm"><dt><a href="#dho-overview">DHO</a></dt><dd>Dribble handoff.</dd></div><div class="gterm"><dt><a href="#double-drag">Double Drag (77/55)</a></dt><dd>A staggered two-person ball screen in transition.</dd></div><div class="gterm"><dt><a href="#down-screen">Down</a></dt><dd>A pin-<strong>down</strong> screen bringing a player from the baseline up.</dd></div><div class="gterm"><dt><a href="#drop">Drop</a></dt><dd>Pick-and-roll coverage where the screener’s defender stays below the screen and backpedals.</dd></div><div class="gterm"><dt><a href="#duck-in">Duck-In</a></dt><dd>A post move where a player seals their defender in the paint.</dd></div><div class="gterm"><dt><a href="#empty">Empty</a></dt><dd>No offensive player in the near corner of a pick-and-roll action.</dd></div><div class="gterm"><dt><a href="#flex-offense">● Flex</a></dt><dd>A screen-the-screener action where a player sets a <strong>flex</strong> screen and then <strong>get</strong>s a pin-down to the Elbow.</dd></div><div class="gterm"><dt><a href="#floppy">● Floppy</a></dt><dd>A play where a player under the basket chooses between a single or double screen.</dd></div><div class="gterm"><dt><a href="#fronting-the-post">● Fronting the Post</a></dt><dd>Defending by positioning between the post player and the ball to deny a pass.</dd></div><div class="gterm"><dt>● Garfunkel</dt><dd>Like Veer Action, except initial screen is a Ghost Screen ● <strong>Get</strong>: A pass followed by a handoff, or a big receiving a ball screen at the elbow.</dd></div><div class="gterm"><dt><a href="#grenade">● Grenade</a></dt><dd>A dribble handoff from the low block.</dd></div><div class="gterm"><dt><a href="#hard-hedge">● Hard Hedge</a></dt><dd>A pick-and-roll defense where the screener’s defender pressures the ballhandler before rec<strong>over</strong>ing.</dd></div><div class="gterm"><dt><a href="#horns-offense">● Horns</a></dt><dd>An offensive set with a big at each elbow and a guard in each corner.</dd></div><div class="gterm"><dt><a href="#ice">● Ice</a></dt><dd>A pick-and-roll c<strong>over</strong>age forcing the ballhandler toward the sideline while denying the screen.</dd></div><div class="gterm"><dt><a href="#miami-action">● Miami</a></dt><dd>A dribble handoff followed by a ball screen.</dd></div><div class="gterm"><dt><a href="#one-man-removed">● One-Man Removed</a></dt><dd>Same as Under – defender coming off the screen goes under the screener, one man between him and the man he is guarding ● <strong>Over</strong>: A pick-and-roll defense where the on-ball defender fights <strong>over</strong> the screen – Zero Man Removed ● <strong>Peel Switch</strong>: A help defender switches onto a beaten ballhandler, and the original defender rotates elsewhere.</dd></div><div class="gterm"><dt><a href="#peja">● Peja</a></dt><dd>A Rip DHO play where a shooter sets a backscreen and then <strong>get</strong>s a handoff, popularized by <strong>Peja</strong> Stojaković.</dd></div><div class="gterm"><dt><a href="#pistol-offense">● Pistol (Action)</a></dt><dd>A pass followed by a downhill handoff back to the ballhandler.</dd></div><div class="gterm"><dt><a href="#pre-switch">● Pre-switch</a></dt><dd>A planned off-ball switch before a pick-and-roll to position a better defender on the screen.</dd></div><div class="gterm"><dt><a href="#shadow">● shadow coverage</a></dt><dd>Pick-and-roll defense where the screener’s defender stays just below the screen to contain penetration.</dd></div><div class="gterm"><dt><a href="#shadow">● Shadow</a></dt><dd>A pick-and-roll coverage where the screener’s defender positions themselves <strong>at the level of the screen</strong>, pressuring the ballhandler while recovering to their original assignment – <strong>shadow</strong>ing the BH’s movements ● <strong>Short Roll</strong>: A pick-and-roll where the roller stops near the free-throw line to facilitate offense.</dd></div><div class="gterm"><dt><a href="#slash-action">● Slash</a></dt><dd>A pick-and-pop followed by a weakside dribble handoff.</dd></div><div class="gterm"><dt><a href="#spain-pick-and-roll">● Spain Pick-and-Roll</a></dt><dd>A pick-and-roll with a backscreen for the roller ● <strong>Spanoulis</strong>: A guard/wing cuts from under the rim to the top for a <strong>dribble handoff (DHO)</strong>, often after receiving or setting a screen.</dd></div><div class="gterm"><dt><a href="#stagger-screen">● Stagger</a></dt><dd>Two screens set in the same direction for a single player (opposite of an <strong>elevator screen</strong>).</dd></div><div class="gterm"><dt><a href="#switch">● Switch</a></dt><dd>Two defenders exchange assignments when a ball screen is set, preventing open shots and dribble penetration ● <strong>Trap</strong>: Two defenders aggressively pressure the ballhandler off a ball screen to force a TO ● <strong>Twirl</strong>: An off-ball action where a player curls off the first of two <strong>stagger</strong>ed screens, then the first screener turns and cuts off the second screener.</dd></div></dl></section>

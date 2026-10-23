@@ -401,8 +401,6 @@ def build_topic(slug, title, pages):
     first_page = next((p for p in pages if p not in SKIP_PAGES), pages[0])
     return (f'<section class="topic" id="{slug}" data-title="{esc(title)}">'
             f'<h2>{esc(title)}<a class="anchor" href="#{slug}" aria-label="Link to this entry">#</a></h2>'
-            f'<p class="src">Slide{"s" if len(pages) > 1 else ""} '
-            f'{pages[0]}{"–" + str(pages[-1]) if len(pages) > 1 else ""} of the original deck</p>'
             + "\n".join(body) + "</section>")
 
 
@@ -425,8 +423,6 @@ def build_glossary(slug, title, pages):
     figs = f'<div class="figs">{figs}</div>' if figs else ""
     return (f'<section class="topic" id="{slug}" data-title="{esc(title)}">'
             f'<h2>{esc(title)}<a class="anchor" href="#{slug}" aria-label="Link to this entry">#</a></h2>'
-            f'<p class="src">Slide{"s" if len(pages) > 1 else ""} '
-            f'{pages[0]}{"–" + str(pages[-1]) if len(pages) > 1 else ""} of the original deck</p>'
             f'<dl class="glossary">{"".join(rows)}</dl>{figs}</section>')
 
 
@@ -509,7 +505,6 @@ def build_about(slug, title, pages):
     return (
         f'<section class="topic about" id="{slug}" data-title="{esc(title)}">'
         f'<h2>{esc(title)}<a class="anchor" href="#{slug}" aria-label="Link to this entry">#</a></h2>'
-        '<p class="src">Slide 2 of the original deck</p>'
         '<h3>What is in this document?</h3>'
         f'<div class="agrid">{"".join(cards)}</div>'
         '<p class="andmore">AND MORE</p>'

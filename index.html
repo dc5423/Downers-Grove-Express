@@ -136,6 +136,24 @@ li.note::before{content:"→";position:absolute;left:-22px;color:var(--steel)}
   .subcols{grid-template-columns:1fr;gap:12px}
 }
 
+
+/* ---------- search in the main column ---------- */
+.mainsearch{display:flex;gap:10px;margin:18px 0 10px;max-width:640px}
+.mainsearch input{flex:1;font:inherit;font-size:17px;color:var(--ink);background:var(--white);
+  border:2px solid var(--line);border-radius:10px;padding:12px 15px}
+.mainsearch input:focus{border-color:var(--bright);outline:none}
+.mainsearch button{font:inherit;font-size:15px;background:var(--navy);color:#fff;border:none;
+  border-radius:10px;padding:0 18px;cursor:pointer}
+.results{background:var(--white);border:1px solid var(--line);border-left:6px solid var(--bright);
+  border-radius:0 12px 12px 0;padding:18px 22px;margin:18px 0 8px}
+.rcount{font-family:'Barlow Condensed';font-size:24px;font-weight:700;color:var(--navy);
+  text-transform:uppercase;letter-spacing:.6px;margin:0 0 10px}
+.rchips{display:flex;flex-wrap:wrap;gap:8px}
+.rchips a{font-size:15.5px;text-decoration:none;color:var(--navy);background:var(--mist);
+  border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+.rchips a:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+mark.hit{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 2px}
+
 /* ---------- figures ---------- */
 .figs{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0 4px}
 figure{margin:0;flex:1 1 320px;max-width:100%}
@@ -315,8 +333,16 @@ figure.video iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--line);bo
   <main id="main"><span id="top"></span>
     <div class="intro">
       <h1>DGS Express Knowledgebase</h1>
-      <p>A reference for actions, concepts, screens, cuts, offenses and ball screen coverages. Search above, or pick an entry from the contents.</p>
+      <p>A reference for actions, concepts, screens, cuts, offenses and ball screen coverages. Search below, or pick an entry from the contents.</p>
+      <div class="mainsearch">
+        <input id="q2" type="search" placeholder="Search actions, screens, coverages…" autocomplete="off" aria-label="Search the knowledgebase">
+        <button id="clear" type="button" hidden>Clear</button>
+      </div>
       <p class="credit">These slides were created by Coach Chang of Elmhurst Basketball. Revised for by Coach Epps</p>
+    </div>
+    <div class="results" id="results" hidden>
+      <p class="rcount" id="rcount"></p>
+      <div class="rchips" id="rchips"></div>
     </div>
     <div class="part" id="part-start"><h1 class="parthead">Start Here</h1>
 <section class="topic about" id="about" data-title="About this document"><h2>About this document<a class="anchor" href="#about" aria-label="Link to this entry">#</a></h2><h3>What is in this document?</h3><div class="agrid"><div class="acard"><h4>Actions and Concepts</h4><ul><li>80+ Actions / Concepts with Definitions, How it Works and Why it Works</li><li><a href="#dho-overview">Dribble Hand Off – How to Execute and How to guard</a></li></ul></div><div class="acard"><h4>SWOT Analysis - Offense</h4><p class="cardsub">Strengths, Weaknesses, Opportunities and Threats</p><ul><li><a href="#flex-offense">Flex Offense</a></li><li><a href="#horns-offense">Horns Offense</a></li><li><a href="#pistol-offense">Pistol Offense</a></li><li><a href="#princeton-offense">Princeton Offense</a></li><li><a href="#five-out-offense">5-Out Offense</a></li><li><a href="#circle-motion-offense">Circle Motion Offense</a></li></ul></div><div class="acard wide"><h4>SWOT Analysis - Defense</h4><p class="cardsub">Strengths, Weaknesses, Opportunities and Threats</p><ul class="flat"><li>Gap Defense</li></ul><div class="subcols"><div><h5>Ball Screen Coverages: On-Ball Defender</h5><ul><li><a href="#zero-man-removed">Over (Zero Man Removed)</a></li><li><a href="#one-man-removed">Under (One Man Removed)</a></li><li><a href="#two-man-removed">Press Up (Two Man Removed)</a></li></ul></div><div><h5>Ball Screen Coverages: Off-Ball Defender</h5><ul><li><a href="#drop">Drop</a></li><li><a href="#hard-hedge">Hedge</a></li><li><a href="#shadow">Shadow</a></li><li><a href="#switch">Switch</a></li><li><a href="#trapping">Trap</a></li></ul></div><div><h5>Off- Ball Screen Coverages: Off-Ball Defender</h5><ul><li><a href="#zero-man-removed">Zero Man Removed</a></li><li><a href="#one-man-removed">One Man Removed</a></li><li><a href="#two-man-removed">Two Man Removed</a></li></ul></div></div></div></div><p class="andmore">AND MORE</p><h3>How do I use this document?</h3><div class="agrid two"><div class="acard"><h4>Players</h4><ul><li>This presentation is a repository of basketball information to help develop and strengthen your basketball IQ</li><li>Be a student of the game. Study actions and concepts that are in this document</li><li>Doing so will help “slow the game” down for you</li><li>Helping you process what you are seeing faster; allowing you to make better in game decisions</li></ul></div><div class="acard"><h4>Coaches</h4><ul><li>Use this presentation as a template to build / demonstrate your team identity</li><li>Choose or Add to existing actions / concepts or offenses / defenses that pertain to your team and what you want to accomplish this upcoming season</li><li>Delete any actions / concepts or offenses / defenses that do not pertain to your team</li><li>The result is your team’s offense and defensive philosophies / scheme + actions and concepts that your players will need to know and utilize.</li></ul></div></div><p class="anote"><span>Example</span> Horns Offense + One Man Removed and Hedge Ball Screens + Switch Off-Ball Screens. Will utilize the following actions: Miami, Veer, Stampede, … , … etc</p><p class="anote"><span>Links</span> Any word with a hyperlink – click on the word and then the link that appears. This will direct you to the action / concept. Example: <a href="#veer-screen">Veer</a></p></section>
@@ -3004,7 +3030,7 @@ figure.video iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--line);bo
 </ul>
 <div class="figs"><figure><img loading="lazy" src="img/p226-1.jpg" alt="Diagram from slide 226"></figure></div></section>
 </div>
-    <p class="empty" id="empty">No entries match that search.</p>
+    <p class="empty" id="noresults">No entries match that search.</p>
   </main>
 </div>
 <button class="totop" id="totop" aria-label="Back to top">↑</button>
@@ -3015,25 +3041,76 @@ figure.video iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--line);bo
   var parts = Array.prototype.slice.call(document.querySelectorAll('.part'));
   var navParts = Array.prototype.slice.call(document.querySelectorAll('.navpart'));
   var q = document.getElementById('q');
+  var q2 = document.getElementById('q2');
+  var clearBtn = document.getElementById('clear');
   var count = document.getElementById('count');
-  var empty = document.getElementById('empty');
+  var empty = document.getElementById('noresults');
+  var results = document.getElementById('results');
+  var rcount = document.getElementById('rcount');
+  var rchips = document.getElementById('rchips');
+  var intro = document.querySelector('.intro');
 
   topics.forEach(function(t){ t._text = (t.dataset.title + ' ' + t.textContent).toLowerCase(); });
 
+  function clearMarks(){
+    document.querySelectorAll('mark.hit').forEach(function(m){
+      var parent = m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent), m);
+      parent.normalize();
+    });
+  }
+
+  function markIn(root, term){
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if(!n.nodeValue || n.nodeValue.toLowerCase().indexOf(term) < 0) return NodeFilter.FILTER_REJECT;
+        var p = n.parentNode;
+        if(!p || p.nodeName === 'MARK' || p.nodeName === 'SCRIPT' || p.nodeName === 'STYLE') return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes = [], n;
+    while((n = walker.nextNode())) nodes.push(n);
+    nodes.forEach(function(node){
+      var text = node.nodeValue, low = text.toLowerCase(), out = document.createDocumentFragment();
+      var i = 0, j;
+      while((j = low.indexOf(term, i)) > -1){
+        if(j > i) out.appendChild(document.createTextNode(text.slice(i, j)));
+        var mk = document.createElement('mark');
+        mk.className = 'hit';
+        mk.textContent = text.slice(j, j + term.length);
+        out.appendChild(mk);
+        i = j + term.length;
+      }
+      if(i < text.length) out.appendChild(document.createTextNode(text.slice(i)));
+      node.parentNode.replaceChild(out, node);
+    });
+  }
+
+  var lastTerm = '';
+
   function filter(){
     var term = q.value.trim().toLowerCase();
+    if(q2.value !== q.value) q2.value = q.value;
+    clearBtn.hidden = !term;
+    clearMarks();
+
     if(!term){
       topics.forEach(function(t){ t.style.display=''; });
       parts.forEach(function(p){ p.style.display=''; });
       navLinks.forEach(function(a){ a.parentNode.style.display=''; });
       navParts.forEach(function(p){ p.style.display=''; });
-      count.textContent=''; empty.style.display='none'; return;
+      count.textContent=''; empty.style.display='none';
+      results.hidden = true; rchips.innerHTML = '';
+      lastTerm = '';
+      return;
     }
-    var hits = 0;
+
+    var hits = 0, matched = [];
     topics.forEach(function(t){
       var on = t._text.indexOf(term) > -1;
       t.style.display = on ? '' : 'none';
-      if(on) hits++;
+      if(on){ hits++; matched.push(t); }
       var link = document.querySelector('nav a[data-slug="'+t.id+'"]');
       if(link) link.parentNode.style.display = on ? '' : 'none';
     });
@@ -3043,9 +3120,46 @@ figure.video iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--line);bo
     navParts.forEach(function(p){
       p.style.display = p.querySelector('li:not([style*="none"])') ? '' : 'none';
     });
+
     count.textContent = hits + (hits===1?' entry':' entries');
     empty.style.display = hits ? 'none' : 'block';
+
+    if(term.length > 1) matched.forEach(function(t){ markIn(t, term); });
+
+    results.hidden = false;
+    rcount.textContent = hits === 0
+      ? 'No entries match “' + q.value.trim() + '”'
+      : hits + (hits === 1 ? ' entry matches “' : ' entries match “') + q.value.trim() + '”';
+    rchips.innerHTML = '';
+    matched.slice(0, 40).forEach(function(t){
+      var a = document.createElement('a');
+      a.href = '#' + t.id;
+      a.textContent = t.dataset.title;
+      rchips.appendChild(a);
+    });
+    if(matched.length > 40){
+      var more = document.createElement('a');
+      more.href = '#' + matched[40].id;
+      more.textContent = '+ ' + (matched.length - 40) + ' more';
+      rchips.appendChild(more);
+    }
+
+    if(!lastTerm && intro.getBoundingClientRect().top < -40){
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+    lastTerm = term;
   }
+
+  function syncFrom(el){
+    return function(){
+      if(q.value !== el.value) q.value = el.value;
+      filter();
+    };
+  }
+  q2.addEventListener('input', syncFrom(q2));
+  q2.addEventListener('keydown', function(e){ if(e.key==='Escape'){ q2.value=''; q.value=''; filter(); }});
+  clearBtn.addEventListener('click', function(){ q.value=''; q2.value=''; filter(); q2.focus(); });
+
   q.addEventListener('input', filter);
   q.addEventListener('keydown', function(e){ if(e.key==='Escape'){ q.value=''; filter(); }});
 

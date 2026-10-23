@@ -6,7 +6,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from outline import PARTS, SKIP_PAGES, ALIASES  # noqa: E402
+from outline import PARTS, SKIP_PAGES, ALIASES, VIDEOS  # noqa: E402
 
 KB = sys.argv[1]
 SITE = sys.argv[2]
@@ -60,10 +60,19 @@ def esc(s):
     return html.escape(s, quote=False)
 
 
+URL_RE = re.compile(r"(https?://[^\s<>\"]+)")
+
+
+def linkify(frag):
+    return URL_RE.sub(
+        lambda m: f'<a href="{m.group(1)}" target="_blank" rel="noopener">{m.group(1)}</a>',
+        frag)
+
+
 def apply_bold(text, bolds):
     """Wrap the page's bold runs in <strong>, longest first, without nesting."""
     if not bolds:
-        return esc(text)
+        return linkify(esc(text))
     spans = []
     for b in bolds:
         if len(b) < 3:
@@ -79,7 +88,7 @@ def apply_bold(text, bolds):
                 spans.append((i, j))
             start = i + 1
     if not spans:
-        return esc(text)
+        return linkify(esc(text))
     spans.sort()
     out, pos = [], 0
     for s, e in spans:
@@ -89,7 +98,7 @@ def apply_bold(text, bolds):
         out.append("<strong>" + esc(text[s:e]) + "</strong>")
         pos = e
     out.append(esc(text[pos:]))
-    return "".join(out)
+    return linkify("".join(out))
 
 
 def link_terms(frag_html, terms_text):
@@ -267,7 +276,30 @@ def render_items(items, bolds):
     return "\n".join(out)
 
 
+def video_figure(page):
+    v = VIDEOS[page]
+    poster = (IMAGES.get(page) or [None])[0]
+    watch = f'https://www.youtube.com/watch?v={v["id"]}'
+    if v.get("list"):
+        watch += f'&list={v["list"]}'
+    embed = f'https://www.youtube-nocookie.com/embed/{v["id"]}'
+    if v.get("list"):
+        embed += f'?list={v["list"]}'
+    img = (f'<img src="img/{poster}" alt="Video thumbnail: {esc(v["label"])}" loading="lazy">'
+           if poster else "")
+    return (
+        f'<figure class="video">'
+        f'<button class="playbox" data-embed="{embed}" aria-label="Play the {esc(v["label"])} video">'
+        f'{img}<span class="play" aria-hidden="true">▶</span></button>'
+        f'<figcaption>Video: {esc(v["label"])} · '
+        f'<a href="{watch}" target="_blank" rel="noopener">Watch on YouTube</a> · '
+        f'Slide {page}</figcaption></figure>'
+    )
+
+
 def figures(page):
+    if page in VIDEOS:
+        return video_figure(page)
     out = []
     for name in IMAGES.get(page, []):
         out.append(

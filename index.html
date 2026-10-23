@@ -142,6 +142,19 @@ figure{margin:0;flex:1 1 320px;max-width:100%}
 figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:var(--mist)}
 figcaption{font-size:13px;color:var(--muted);padding-top:5px}
 
+
+figure.video{flex:1 1 420px;max-width:560px}
+.playbox{display:block;width:100%;position:relative;padding:0;border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;background:#0B2F60;cursor:pointer;aspect-ratio:16/9}
+.playbox img{width:100%;height:100%;object-fit:cover;display:block;border:none;border-radius:0;
+  transition:opacity .15s ease}
+.playbox:hover img{opacity:.78}
+.playbox .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:66px;height:66px;border-radius:50%;background:rgba(0,32,78,.86);color:#fff;
+  font-size:24px;line-height:66px;text-align:center;padding-left:4px}
+.playbox:hover .play{background:var(--navy)}
+figure.video iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:10px;display:block}
+
 .empty{display:none;padding:60px 0;color:var(--muted);font-size:19px}
 .totop{position:fixed;right:22px;bottom:22px;background:var(--navy);color:#fff;border:none;border-radius:50%;
   width:46px;height:46px;font-size:20px;cursor:pointer;display:none}
@@ -2035,7 +2048,7 @@ figcaption{font-size:13px;color:var(--muted);padding-top:5px}
 <ul>
 <li class="yes">Continuity Offense</li>
 </ul>
-<div class="figs"><figure><img loading="lazy" src="img/p157-1.jpg" alt="Diagram from slide 157"><figcaption>Slide 157</figcaption></figure></div></section>
+<div class="figs"><figure class="video"><button class="playbox" data-embed="https://www.youtube-nocookie.com/embed/OsSQD7qn6vI" aria-label="Play the Euro Ball Screen Offense video"><img src="img/p157-1.jpg" alt="Video thumbnail: Euro Ball Screen Offense" loading="lazy"><span class="play" aria-hidden="true">▶</span></button><figcaption>Video: Euro Ball Screen Offense · <a href="https://www.youtube.com/watch?v=OsSQD7qn6vI" target="_blank" rel="noopener">Watch on YouTube</a> · Slide 157</figcaption></figure></div></section>
 <section class="topic" id="flex-offense" data-title="Flex Offense"><h2>Flex Offense<a class="anchor" href="#flex-offense" aria-label="Link to this entry">#</a></h2><p class="src">Slides 158–165 of the original deck</p><h3>Key Concepts</h3>
 <p class="lbl"><span>Definition</span> A <strong>continuity offense</strong> that relies on <strong>constant screening, cutting, and ball movement</strong>, primarily using <strong>flex screens</strong> and <strong>down screens</strong> to generate open looks.</p>
 <p class="lbl"><span>Synonyms</span> Motion Flex, Continuity Flex.</p>
@@ -2103,7 +2116,7 @@ figcaption{font-size:13px;color:var(--muted);padding-top:5px}
 <li class="yes"><strong>Balanced scoring without relying on one star player.</strong></li>
 </ul>
 
-<div class="figs"><figure><img loading="lazy" src="img/p163-1.jpg" alt="Diagram from slide 163"><figcaption>Slide 163</figcaption></figure></div>
+<div class="figs"><figure class="video"><button class="playbox" data-embed="https://www.youtube-nocookie.com/embed/hQ2Nq6GrOgs" aria-label="Play the Flex Offense video"><img src="img/p163-1.jpg" alt="Video thumbnail: Flex Offense" loading="lazy"><span class="play" aria-hidden="true">▶</span></button><figcaption>Video: Flex Offense · <a href="https://www.youtube.com/watch?v=hQ2Nq6GrOgs" target="_blank" rel="noopener">Watch on YouTube</a> · Slide 163</figcaption></figure></div>
 <ul>
 <li class="yes">Examples</li>
 </ul>
@@ -2197,7 +2210,7 @@ figcaption{font-size:13px;color:var(--muted);padding-top:5px}
 <li class="yes"><strong>Perfect for teams that want a structured offense with built-in flexibility, strong spacing, and multiple ways to attack!</strong></li>
 </ul>
 
-<div class="figs"><figure><img loading="lazy" src="img/p171-1.jpg" alt="Diagram from slide 171"><figcaption>Slide 171</figcaption></figure></div>
+<div class="figs"><figure class="video"><button class="playbox" data-embed="https://www.youtube-nocookie.com/embed/Cva0AB_hPFE" aria-label="Play the Horns Offense video"><img src="img/p171-1.jpg" alt="Video thumbnail: Horns Offense" loading="lazy"><span class="play" aria-hidden="true">▶</span></button><figcaption>Video: Horns Offense · <a href="https://www.youtube.com/watch?v=Cva0AB_hPFE" target="_blank" rel="noopener">Watch on YouTube</a> · Slide 171</figcaption></figure></div>
 <ul>
 <li class="yes"><strong>Coach Chang’s recommendation</strong></li>
 </ul>
@@ -2299,7 +2312,7 @@ figcaption{font-size:13px;color:var(--muted);padding-top:5px}
 <li class="yes"><strong>Fast, smart, and adaptable</strong> — Pistol is a must-have in any coach’s offensive playbook.</li>
 </ul>
 
-<div class="figs"><figure><img loading="lazy" src="img/p179-1.jpg" alt="Diagram from slide 179"><figcaption>Slide 179</figcaption></figure></div>
+<div class="figs"><figure class="video"><button class="playbox" data-embed="https://www.youtube-nocookie.com/embed/-62TOKx8mfA" aria-label="Play the Pistol Offense video"><img src="img/p179-1.jpg" alt="Video thumbnail: Pistol Offense" loading="lazy"><span class="play" aria-hidden="true">▶</span></button><figcaption>Video: Pistol Offense · <a href="https://www.youtube.com/watch?v=-62TOKx8mfA" target="_blank" rel="noopener">Watch on YouTube</a> · Slide 179</figcaption></figure></div>
 <p class="lbl"><span>Definition</span> A <strong>DHO sequence</strong> where the <strong>point guard (1)</strong> passes to the <strong>strong-side corner player (2)</strong>, then</p>
 <ul>
 <li class="yes">immediately follows the pass to receive a <strong>handoff</strong> and attack downhill.</li>
@@ -2483,7 +2496,7 @@ figcaption{font-size:13px;color:var(--muted);padding-top:5px}
 <li class="yes"><strong>Perfect for teams that lack individual shot creators but thrive on teamwork, spacing, and disciplined execution</strong></li>
 </ul>
 
-<div class="figs"><figure><img loading="lazy" src="img/p192-1.jpg" alt="Diagram from slide 192"><figcaption>Slide 192</figcaption></figure></div></section>
+<div class="figs"><figure class="video"><button class="playbox" data-embed="https://www.youtube-nocookie.com/embed/YLYJJ7j_HZU" aria-label="Play the Princeton Offense video"><img src="img/p192-1.jpg" alt="Video thumbnail: Princeton Offense" loading="lazy"><span class="play" aria-hidden="true">▶</span></button><figcaption>Video: Princeton Offense · <a href="https://www.youtube.com/watch?v=YLYJJ7j_HZU" target="_blank" rel="noopener">Watch on YouTube</a> · Slide 192</figcaption></figure></div></section>
 <section class="topic" id="five-out-offense" data-title="5-Out Offense"><h2>5-Out Offense<a class="anchor" href="#five-out-offense" aria-label="Link to this entry">#</a></h2><p class="src">Slides 193–198 of the original deck</p><h3>Key Concepts</h3>
 <ul>
 <li class="yes"><strong>Spacing &amp; Floor Balance</strong>: Players spread out along the perimeter to <strong>keep the lane open for drives and cuts</strong>.</li>
@@ -2560,9 +2573,9 @@ figcaption{font-size:13px;color:var(--muted);padding-top:5px}
 <li class="warn">If shooters go cold, the offense can become stagnant.</li>
 </ul>
 <ul>
-<li class="yes">https://www.youtube.com/watch?v=ybns3yWMFYE&amp;list=PLOcVeFI53GG5ogKiTCB-hX2HVva80qL6B</li>
+<li class="yes"><a href="https://www.youtube.com/watch?v=ybns3yWMFYE&amp;list=PLOcVeFI53GG5ogKiTCB-hX2HVva80qL6B" target="_blank" rel="noopener">https://www.youtube.com/watch?v=ybns3yWMFYE&amp;list=PLOcVeFI53GG5ogKiTCB-hX2HVva80qL6B</a></li>
 </ul>
-<div class="figs"><figure><img loading="lazy" src="img/p198-1.jpg" alt="Diagram from slide 198"><figcaption>Slide 198</figcaption></figure></div></section>
+<div class="figs"><figure class="video"><button class="playbox" data-embed="https://www.youtube-nocookie.com/embed/ybns3yWMFYE?list=PLOcVeFI53GG5ogKiTCB-hX2HVva80qL6B" aria-label="Play the 5-Out Offense video"><img src="img/p198-1.jpg" alt="Video thumbnail: 5-Out Offense" loading="lazy"><span class="play" aria-hidden="true">▶</span></button><figcaption>Video: 5-Out Offense · <a href="https://www.youtube.com/watch?v=ybns3yWMFYE&list=PLOcVeFI53GG5ogKiTCB-hX2HVva80qL6B" target="_blank" rel="noopener">Watch on YouTube</a> · Slide 198</figcaption></figure></div></section>
 <section class="topic" id="circle-motion-offense" data-title="Circle Motion Offense"><h2>Circle Motion Offense<a class="anchor" href="#circle-motion-offense" aria-label="Link to this entry">#</a></h2><p class="src">Slides 199–205 of the original deck</p><h3>Key Concepts</h3>
 <ul>
 <li class="yes"><strong>Continuous Perimeter Rotation</strong>: Players rotate in a <strong>circular motion around the key</strong>, keeping the ball moving.</li>
@@ -2652,7 +2665,7 @@ figcaption{font-size:13px;color:var(--muted);padding-top:5px}
 <li class="warn">If shooters go cold, the offense can become stagnant.</li>
 </ul>
 
-<div class="figs"><figure><img loading="lazy" src="img/p205-1.jpg" alt="Diagram from slide 205"><figcaption>Slide 205</figcaption></figure></div></section>
+<div class="figs"><figure class="video"><button class="playbox" data-embed="https://www.youtube-nocookie.com/embed/_EVv6DHDQuQ" aria-label="Play the Circle Motion Offense video"><img src="img/p205-1.jpg" alt="Video thumbnail: Circle Motion Offense" loading="lazy"><span class="play" aria-hidden="true">▶</span></button><figcaption>Video: Circle Motion Offense · <a href="https://www.youtube.com/watch?v=_EVv6DHDQuQ" target="_blank" rel="noopener">Watch on YouTube</a> · Slide 205</figcaption></figure></div></section>
 </div>
 <div class="part" id="part-actions"><h1 class="parthead">Actions</h1>
 <section class="topic" id="barkley" data-title="Barkley"><h2>Barkley<a class="anchor" href="#barkley" aria-label="Link to this entry">#</a></h2><p class="src">Slide 206 of the original deck</p><p class="lbl"><span>Definition</span> Dribbling from the perimeter into a post-up..</p>
@@ -2667,7 +2680,7 @@ figcaption{font-size:13px;color:var(--muted);padding-top:5px}
 <li class="yes">The defender cuts off the drive</li>
 <li class="yes">The player flips their hips and turns the drive into a post up</li>
 </ul>
-<div class="figs"><figure><img loading="lazy" src="img/p206-1.jpg" alt="Diagram from slide 206"><figcaption>Slide 206</figcaption></figure></div></section>
+<div class="figs"><figure class="video"><button class="playbox" data-embed="https://www.youtube-nocookie.com/embed/FN8phcu0wQ0" aria-label="Play the Barkley video"><img src="img/p206-1.jpg" alt="Video thumbnail: Barkley" loading="lazy"><span class="play" aria-hidden="true">▶</span></button><figcaption>Video: Barkley · <a href="https://www.youtube.com/watch?v=FN8phcu0wQ0" target="_blank" rel="noopener">Watch on YouTube</a> · Slide 206</figcaption></figure></div></section>
 <section class="topic" id="baseline-slide" data-title="Baseline Slide"><h2>Baseline Slide<a class="anchor" href="#baseline-slide" aria-label="Link to this entry">#</a></h2><p class="src">Slide 207 of the original deck</p><p class="lbl"><span>Definition</span> An automatic weakside cut to the corner when the <strong>ballhandler drives baseline</strong>.</p>
 <h4><strong>Why It Works</strong></h4>
 <ul>
@@ -2783,7 +2796,7 @@ figcaption{font-size:13px;color:var(--muted);padding-top:5px}
 <li class="yes"><strong>5 seals their defender</strong> using their <strong>inside foot and body</strong>, preventing defensive recovery.</li>
 <li class="yes">The passer <strong>delivers the entry pass</strong>, leading to a high-percentage look near the rim.</li>
 </ul>
-<div class="figs"><figure><img loading="lazy" src="img/p213-1.jpg" alt="Diagram from slide 213"><figcaption>Slide 213</figcaption></figure></div></section>
+<div class="figs"><figure class="video"><button class="playbox" data-embed="https://www.youtube-nocookie.com/embed/tYmfZ2uD5Xo" aria-label="Play the Duck In video"><img src="img/p213-1.jpg" alt="Video thumbnail: Duck In" loading="lazy"><span class="play" aria-hidden="true">▶</span></button><figcaption>Video: Duck In · <a href="https://www.youtube.com/watch?v=tYmfZ2uD5Xo" target="_blank" rel="noopener">Watch on YouTube</a> · Slide 213</figcaption></figure></div></section>
 <section class="topic" id="empty" data-title="Empty"><h2>Empty<a class="anchor" href="#empty" aria-label="Link to this entry">#</a></h2><p class="src">Slide 214 of the original deck</p><p class="lbl"><span>Definition</span> A <strong>pick-and-roll or offensive action where the near-side corner is unoccupied</strong>, giving the ballhandler more space to operate.</p>
 <p class="lbl"><span>Synonyms</span> <strong>Empty</strong> Side, <strong>Empty</strong> Corner PnR.</p>
 <h4>Why It Works</h4>
@@ -3051,6 +3064,20 @@ figcaption{font-size:13px;color:var(--muted);padding-top:5px}
   });
   document.querySelector('nav').addEventListener('click', function(e){
     if(e.target.tagName === 'A') document.body.classList.remove('open');
+  });
+
+
+  document.addEventListener('click', function(e){
+    var box = e.target.closest ? e.target.closest('.playbox') : null;
+    if(!box) return;
+    var src = box.dataset.embed;
+    var f = document.createElement('iframe');
+    f.src = src + (src.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1';
+    f.title = box.getAttribute('aria-label') || 'Video';
+    f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+    f.setAttribute('allowfullscreen','');
+    f.loading = 'lazy';
+    box.parentNode.replaceChild(f, box);
   });
 
   var totop = document.getElementById('totop');

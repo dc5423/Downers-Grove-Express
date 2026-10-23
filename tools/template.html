@@ -142,6 +142,19 @@ figure{margin:0;flex:1 1 320px;max-width:100%}
 figure img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:10px;background:var(--mist)}
 figcaption{font-size:13px;color:var(--muted);padding-top:5px}
 
+
+figure.video{flex:1 1 420px;max-width:560px}
+.playbox{display:block;width:100%;position:relative;padding:0;border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;background:#0B2F60;cursor:pointer;aspect-ratio:16/9}
+.playbox img{width:100%;height:100%;object-fit:cover;display:block;border:none;border-radius:0;
+  transition:opacity .15s ease}
+.playbox:hover img{opacity:.78}
+.playbox .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:66px;height:66px;border-radius:50%;background:rgba(0,32,78,.86);color:#fff;
+  font-size:24px;line-height:66px;text-align:center;padding-left:4px}
+.playbox:hover .play{background:var(--navy)}
+figure.video iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--line);border-radius:10px;display:block}
+
 .empty{display:none;padding:60px 0;color:var(--muted);font-size:19px}
 .totop{position:fixed;right:22px;bottom:22px;background:var(--navy);color:#fff;border:none;border-radius:50%;
   width:46px;height:46px;font-size:20px;cursor:pointer;display:none}
@@ -261,6 +274,20 @@ figcaption{font-size:13px;color:var(--muted);padding-top:5px}
   });
   document.querySelector('nav').addEventListener('click', function(e){
     if(e.target.tagName === 'A') document.body.classList.remove('open');
+  });
+
+
+  document.addEventListener('click', function(e){
+    var box = e.target.closest ? e.target.closest('.playbox') : null;
+    if(!box) return;
+    var src = box.dataset.embed;
+    var f = document.createElement('iframe');
+    f.src = src + (src.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1';
+    f.title = box.getAttribute('aria-label') || 'Video';
+    f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+    f.setAttribute('allowfullscreen','');
+    f.loading = 'lazy';
+    box.parentNode.replaceChild(f, box);
   });
 
   var totop = document.getElementById('totop');

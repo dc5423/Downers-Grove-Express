@@ -209,3 +209,18 @@ ALIASES = {
     "circle motion offense": "circle-motion-offense",
     "5-out offense": "five-out-offense",
 }
+
+
+# Slides whose image is a YouTube thumbnail linking out to a video.
+VIDEOS = {
+    157: {"id": "OsSQD7qn6vI", "label": "Euro Ball Screen Offense"},
+    163: {"id": "hQ2Nq6GrOgs", "label": "Flex Offense"},
+    171: {"id": "Cva0AB_hPFE", "label": "Horns Offense"},
+    179: {"id": "-62TOKx8mfA", "label": "Pistol Offense"},
+    192: {"id": "YLYJJ7j_HZU", "label": "Princeton Offense"},
+    198: {"id": "ybns3yWMFYE", "label": "5-Out Offense",
+          "list": "PLOcVeFI53GG5ogKiTCB-hX2HVva80qL6B"},
+    205: {"id": "_EVv6DHDQuQ", "label": "Circle Motion Offense"},
+    206: {"id": "FN8phcu0wQ0", "label": "Barkley"},
+    213: {"id": "tYmfZ2uD5Xo", "label": "Duck In"},
+}

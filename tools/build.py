@@ -503,7 +503,7 @@ def build_about(slug, title, pages):
         use.append(f'<div class="acard"><h4>{esc(head)}</h4><ul>{lis}</ul></div>')
 
     return (
-        f'<section class="topic about" id="{slug}" data-title="{esc(title)}">'
+        f'<section class="topic about" id="{slug}" data-title="{esc(title)}" data-nosearch="1">'
         f'<h2>{esc(title)}<a class="anchor" href="#{slug}" aria-label="Link to this entry">#</a></h2>'
         '<h3>What is in this document?</h3>'
         f'<div class="agrid">{"".join(cards)}</div>'

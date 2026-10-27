@@ -157,6 +157,28 @@ li.note::before{content:"→";position:absolute;left:-22px;color:var(--steel)}
 .rchips a:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
 mark.hit{background:#FFE9A8;color:inherit;border-radius:3px;padding:0 2px}
 
+
+/* ---------- drills ---------- */
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
+.dcard{background:var(--mist);border-radius:12px;padding:16px 18px;border-left:5px solid var(--steel);
+  display:flex;flex-direction:column;gap:6px}
+.dhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.dcard h4{font-size:20px;margin:0;line-height:1.15;flex:1;min-width:0}
+.dsrc{font-family:'Barlow Condensed';font-size:13px;letter-spacing:1.4px;text-transform:uppercase;
+  color:var(--steel);border:1px solid var(--line);background:var(--white);border-radius:5px;
+  padding:2px 8px;font-weight:700;flex:none}
+.dnote{font-size:15.5px;color:var(--body);margin:0}
+.dsee{font-size:14.5px;color:var(--muted);margin:0}
+.dlinks{display:flex;gap:9px;align-items:center;margin:4px 0 0;flex-wrap:wrap}
+.dplay{font:inherit;font-size:15px;font-weight:600;background:var(--navy);color:#fff;border:none;
+  border-radius:8px;padding:8px 15px;cursor:pointer}
+.dplay:hover{background:var(--steel)}
+.dout{font-size:15px;font-weight:600;color:var(--steel);text-decoration:none;
+  border:1px solid var(--line);background:var(--white);border-radius:8px;padding:8px 15px}
+.dout:hover{border-color:var(--steel)}
+.dcard iframe{width:100%;aspect-ratio:16/9;border:none;border-radius:9px;display:block;margin-top:4px}
+@media (max-width:980px){ .dgrid{grid-template-columns:1fr} }
+
 /* ---------- figures ---------- */
 .figs{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0 4px}
 figure{margin:0;flex:1 1 320px;max-width:100%}
@@ -268,7 +290,7 @@ figure.video iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--line);bo
   topics.forEach(function(t){
     t._text = (t.dataset.title + ' ' + t.textContent).toLowerCase();
     t._skip = t.dataset.nosearch === '1';
-    t._rows = Array.prototype.slice.call(t.querySelectorAll('.gterm'));
+    t._rows = Array.prototype.slice.call(t.querySelectorAll('.gterm, .dcard'));
     t._rows.forEach(function(r){ r._text = r.textContent.toLowerCase(); });
   });
 
@@ -425,6 +447,19 @@ figure.video iframe{width:100%;aspect-ratio:16/9;border:1px solid var(--line);bo
 
 
   document.addEventListener('click', function(e){
+    var btn = e.target.closest ? e.target.closest('.dplay') : null;
+    if(btn){
+      var card = btn.closest('.dcard');
+      var fr = document.createElement('iframe');
+      var u = btn.dataset.embed;
+      fr.src = u + (u.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1';
+      fr.title = btn.getAttribute('aria-label') || 'Video';
+      fr.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+      fr.setAttribute('allowfullscreen','');
+      card.appendChild(fr);
+      btn.remove();
+      return;
+    }
     var box = e.target.closest ? e.target.closest('.playbox') : null;
     if(!box) return;
     var src = box.dataset.embed;

@@ -7,6 +7,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from outline import PARTS, SKIP_PAGES, ALIASES, VIDEOS  # noqa: E402
+from drills import GROUPS as DRILL_GROUPS, CONDITIONING  # noqa: E402
 
 KB = sys.argv[1]
 SITE = sys.argv[2]
@@ -520,6 +521,67 @@ def build_about(slug, title, pages):
     )
 
 
+
+# ---------- drills ----------
+YT_ID = re.compile(r"(?:youtu\.be/|v=|/embed/)([A-Za-z0-9_-]{11})")
+YT_LIST = re.compile(r"[?&]list=([A-Za-z0-9_-]+)")
+
+TITLE_BY_SLUG = {slug: title for _, _, topics in PARTS for slug, title, _ in topics}
+
+
+def drill_card(d):
+    url = d["url"]
+    vid = YT_ID.search(url)
+    lst = YT_LIST.search(url)
+    bits = []
+    if d.get("source"):
+        bits.append(f'<span class="dsrc">{esc(d["source"])}</span>')
+    elif vid or lst:
+        bits.append('<span class="dsrc">YouTube</span>')
+    tags = "".join(bits)
+    note = f'<p class="dnote">{esc(d["note"])}</p>' if d.get("note") else ""
+    see = ""
+    if d.get("see") and d["see"] in TITLE_BY_SLUG:
+        see = (f'<p class="dsee">In this knowledgebase: '
+               f'<a href="#{d["see"]}">{esc(TITLE_BY_SLUG[d["see"]])}</a></p>')
+
+    if vid:
+        embed = f'https://www.youtube-nocookie.com/embed/{vid.group(1)}'
+        if lst:
+            embed += f'?list={lst.group(1)}'
+        play = (f'<button class="dplay" data-embed="{embed}" '
+                f'aria-label="Play {esc(d["title"])}"><span aria-hidden="true">▶</span> Play</button>')
+    else:
+        play = ""
+
+    return (
+        f'<div class="dcard">'
+        f'<div class="dhead"><h4>{esc(d["title"])}</h4>{tags}</div>'
+        f'{note}{see}'
+        f'<p class="dlinks">{play}'
+        f'<a class="dout" href="{url}" target="_blank" rel="noopener">Open{"" if play else " link"}</a>'
+        f'</p></div>'
+    )
+
+
+def build_drill_group(slug, title, items):
+    cards = "".join(drill_card(d) for d in items)
+    return (f'<section class="topic" id="{slug}" data-title="{esc(title)}">'
+            f'<h2>{esc(title)}<a class="anchor" href="#{slug}" aria-label="Link to this entry">#</a></h2>'
+            f'<div class="dgrid">{cards}</div></section>')
+
+
+def build_conditioning(slug, title):
+    blocks = []
+    for name, sub, steps in CONDITIONING:
+        lis = "".join(f"<li>{esc(x)}</li>" for x in steps)
+        blocks.append(f'<div class="acard"><h4>{esc(name)}</h4>'
+                      f'<p class="cardsub">{esc(sub)}</p><ul>{lis}</ul></div>')
+    return (f'<section class="topic" id="{slug}" data-title="{esc(title)}">'
+            f'<h2>{esc(title)}<a class="anchor" href="#{slug}" aria-label="Link to this entry">#</a></h2>'
+            f'<div class="agrid">{"".join(blocks)}</div></section>')
+
+
 GLOSSARY_SLUGS = {"concepts", "screens-list", "cuts-list", "ball-terminology"}
 
 sections_html, nav_html = [], []
@@ -537,6 +599,17 @@ for part_slug, part_title, topics in PARTS:
     sections_html.append("</div>")
     nav_html.append("</ul></div>")
 
+nav_html.append('<div class="navpart"><h3>Drills &amp; Resources</h3><ul>')
+sections_html.append('<div class="part" id="part-drills">'
+                     '<h1 class="parthead">Drills &amp; Resources</h1>')
+for slug, title, items in DRILL_GROUPS:
+    nav_html.append(f'<li><a href="#{slug}" data-slug="{slug}">{esc(title)}</a></li>')
+    sections_html.append(build_drill_group(slug, title, items))
+nav_html.append('<li><a href="#drills-conditioning" data-slug="drills-conditioning">Conditioning</a></li>')
+sections_html.append(build_conditioning("drills-conditioning", "Conditioning"))
+sections_html.append("</div>")
+nav_html.append("</ul></div>")
+
 TEMPLATE = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "template.html"),
                 encoding="utf-8").read()
 out = TEMPLATE.replace("<!--NAV-->", "\n".join(nav_html)).replace("<!--BODY-->", "\n".join(sections_html))
@@ -544,7 +617,9 @@ os.makedirs(SITE, exist_ok=True)
 with open(os.path.join(SITE, "index.html"), "w", encoding="utf-8") as fh:
     fh.write(out)
 
-n_topics = sum(len(t) for _, _, t in PARTS)
+n_topics = sum(len(t) for _, _, t in PARTS) + len(DRILL_GROUPS) + 1
+n_drills = sum(len(i) for _, _, i in DRILL_GROUPS)
+print("drills:", n_drills)
 n_links = out.count('href="#')
 print("topics:", n_topics)
 print("internal links:", n_links)

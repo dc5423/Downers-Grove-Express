@@ -30,8 +30,25 @@ python3 build.py ./kb ..
 | `lines.py` | Splits each slide into columns, drops display type, decides where paragraphs break. |
 | `images.py` | Extracts diagrams, composites soft masks, skips solid background blocks, compresses to JPEG. |
 | `outline.py` | The map from PDF pages to sections and entries, plus the term aliases that make cross-links resolve. |
+| `drills.py` | The Drills & Resources section. Hand-maintained, not extracted from the PDF. |
 | `build.py` | Turns the extracted content into the page. |
 | `template.html` | The shell: styling, search and navigation. `build.py` fills in `<!--NAV-->` and `<!--BODY-->`. |
+
+## Adding a drill
+
+Open `drills.py`, find the group it belongs in, and add one line:
+
+```python
+{"title": "Shell Drill, 4 on 4", "url": "https://youtu.be/XXXXXXXXXXX"},
+```
+
+Then rebuild step 3 above. A YouTube link gets a Play button that runs the
+video on the page; anything else becomes an "Open link" button. Optional
+extras are `note` for a line of description, `source` for a credit tag, and
+`see` to point at a knowledgebase entry by slug.
+
+Nothing else needs touching. The nav, the search index and the anchors all
+pick it up on the next build.
 
 ## Changing things
 
